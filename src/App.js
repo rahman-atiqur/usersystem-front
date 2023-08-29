@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+/* Developed by Atiqur Rahman */
+
+import "./App.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./components/layout/Navbar";
+import { Home } from "./components/pages/Home";
+import { AddUser } from "./components/users/AddUser";
+import { EditUser } from "./components/users/EditUser";
+import { ViewUser } from "./components/users/ViewUser";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import React, { useState } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [message, setMessage] = useState("Ready to add new data");
+    const changeMessage = (newMessage) => {
+        setMessage(newMessage);
+    };
+    return (
+        <div className="App">
+            <Router>
+                <Navbar />
+                <Routes>
+                    <Route
+                        exact
+                        path="/"
+                        element={<Home message={message} changeMessage={changeMessage} />}
+                    />
+                    <Route
+                        exact
+                        path="/adduser"
+                        element={<AddUser changeMessage={changeMessage} />}
+                    />
+                    <Route
+                        exaact
+                        path="/edituser/:id"
+                        element={<EditUser changeMessage={changeMessage} />}
+                    />
+                    <Route
+                        exact
+                        path="/viewuser/:id"
+                        element={<ViewUser changeMessage={changeMessage} />}
+                    />
+                </Routes>
+            </Router>
+        </div>
+    );
 }
 
 export default App;
