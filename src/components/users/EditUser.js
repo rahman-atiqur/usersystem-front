@@ -1,3 +1,4 @@
+/* Implemented by Atiqur Rahman */
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -14,16 +15,16 @@ export const EditUser = ({ changeMessage }) => {
     });
     const [error, setError] = useState(false);
     const [flg, setFlg] = useState(true);
-
+    const ROOT_URL = "http://springboot-app-3-env.eba-6itjfmwd.us-east-2.elasticbeanstalk.com";
     const { name, username, email } = user;
+
+    useEffect(() => {
+        loadUsers();
+    }, []);
 
     const onInputChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
     };
-
-    useEffect(() => {
-        loadUser();
-    }, []);
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -31,14 +32,14 @@ export const EditUser = ({ changeMessage }) => {
             setError(true);
             setFlg(true);
         } else {
-            await axios.put(`http://localhost:8080/user/${id}`, user);
+            await axios.put(ROOT_URL + `/user/${id}`, user);
             changeMessage("Updated successfully!!");
             navigate("/");
         }
     };
 
-    const loadUser = async () => {
-        const result = await axios.get(`http://localhost:8080/user/${id}`);
+    const loadUsers = async () => {
+        const result = await axios.get(ROOT_URL + `/user/${id}`);
         setUser(result.data);
     };
 

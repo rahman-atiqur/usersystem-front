@@ -1,3 +1,4 @@
+/* Implemented by Atiqur Rahman */
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -10,7 +11,7 @@ export const AddUser = ({ changeMessage }) => {
         email: "",
     });
     const [error, setError] = useState(false);
-    // const [success, setSuccess] = useState(false);
+    const ROOT_URL = "http://springboot-app-3-env.eba-6itjfmwd.us-east-2.elasticbeanstalk.com";
 
     //Deconstruct
     const { name, username, email } = user;
@@ -24,7 +25,7 @@ export const AddUser = ({ changeMessage }) => {
         if (name.length === 0 || username.length === 0 || email.length === 0) {
             setError(true);
         } else {
-            await axios.post("http://localhost:8080/user/add", user);
+            await axios.post(ROOT_URL + "/user/add", user);
 
             changeMessage("New record added successfully!!");
 

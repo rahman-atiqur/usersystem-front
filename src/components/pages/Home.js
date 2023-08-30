@@ -7,20 +7,21 @@ export const Home = ({ message, changeMessage }) => {
     const [users, setUsers] = useState([]);
     const [alert, setAlert] = useState(true);
     const [query, setQuery] = useState("");
+    const ROOT_URL = "http://springboot-app-3-env.eba-6itjfmwd.us-east-2.elasticbeanstalk.com";
 
     useEffect(() => {
         loadUsers();
     }, []);
 
     const loadUsers = async () => {
-        const result = await axios.get("http://localhost:8080/user/getAll");
+        const result = await axios.get(ROOT_URL + "/user/getAll");
         setUsers(result.data);
         const timer = setTimeout(() => {
             setAlert(false);
         }, 3000);
     };
     const deleteUser = async (id) => {
-        await axios.delete(`http://localhost:8080/user/${id}`); //it works for single id or array of ids
+        await axios.delete(ROOT_URL + `/user/${id}`); //it works for single id or array of ids
         changeMessage(`Deleted record${id.length > 1 ? `s` : ``}: ${id}`);
         setChecked([]);
         setAlert(true);
@@ -194,6 +195,28 @@ export const Home = ({ message, changeMessage }) => {
                         )}
                     </>
                 )}
+            </div>
+            <div className="py-4" fs-6>
+                <label className="text-secondary">Source code:</label>
+                <br />
+                <label className="text-secondary">Spring Boot - Back End:</label>
+
+                <Link
+                    className="mx-3 text-decoration-underline"
+                    to="https://github.com/rahman-atiqur/usersystem-back"
+                    target="_blank"
+                >
+                    https://github.com/rahman-atiqur/usersystem-back
+                </Link>
+                <br />
+                <label className="text-secondary">ReactJS - Front End:</label>
+                <Link
+                    className="mx-3 text-decoration-underline"
+                    to="https://github.com/rahman-atiqur/usersystem-back"
+                    target="_blank"
+                >
+                     https://github.com/rahman-atiqur/usersystem-front
+                </Link>
             </div>
         </div>
     );
