@@ -67,7 +67,7 @@ export const AddUser = ({ changeMessage }) => {
                                 className="form-control"
                                 placeholder="Enter your username"
                                 name="username"
-                                value={username}
+                                value={username.toLocaleLowerCase()}
                                 onChange={(e) => onInputChange(e)}
                             />
                             {error && user.username.length <= 0 ? (
