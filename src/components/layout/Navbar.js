@@ -38,14 +38,6 @@ const Navbar = () => {
                     </Link>
                 </div>
             </nav>
-
-            <Link
-                className="mx-3 fs-5 text-decoration-underline"
-                to="http://verizon.com"
-                target="_blank"
-            >
-                Verizon
-            </Link>
         </div>
     );
 };
