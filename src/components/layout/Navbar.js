@@ -4,11 +4,6 @@ import { Link } from "react-router-dom";
 import { AddUser } from "../users/AddUser";
 
 const Navbar = () => {
-    // const [message, setMessage] = useState("Hello");
-    // const changeMessage = (newMessage) => {
-    //     setMessage(newMessage);
-    // };
-
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -20,18 +15,6 @@ const Navbar = () => {
                     <Link className="navbar-brand" to="/">
                         Spring Boot and ReactJS for Full Stack Application
                     </Link>
-
-                    {/* <form className="d-flex" role="search">
-                        <input
-                            className="form-control me-2"
-                            type="search"
-                            placeholder="Search"
-                            aria-label="Search"
-                        />
-                        <button className="btn btn-outline-light" type="submit">
-                            Search
-                        </button>
-                    </form> */}
 
                     <Link className="btn btn-outline-light" to="/adduser">
                         Add User
