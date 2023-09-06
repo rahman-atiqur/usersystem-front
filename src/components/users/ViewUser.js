@@ -20,7 +20,7 @@ export const ViewUser = ({ changeMessage }) => {
     const loadUsers = async () => {
         const result = await axios.get(ROOT_URL + `/user/${id}`);
         setUser(result.data);
-        changeMessage("");
+        changeMessage("Ready to add new data");
     };
 
     //deconstructing
