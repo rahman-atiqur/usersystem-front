@@ -24,6 +24,7 @@ export const Home = ({ message, changeMessage }) => {
     const deleteUser = async (id) => {
         await axios.delete(ROOT_URL + `/user/${id}`); //it works for single id or array of ids
         changeMessage(`Deleted record${id.length > 1 ? `s` : ``}: ${id}`);
+        // setQuery("");
         setChecked([]);
         setAlert(true);
         loadUsers();
@@ -33,7 +34,12 @@ export const Home = ({ message, changeMessage }) => {
     const keys = ["username", "name", "email"];
     const search = (data) => {
         if (query.length > 1) {
-            return data.filter((d) => keys.some((key) => d[key].toLowerCase().includes(query))); //using searching column
+            return data.filter(
+                (d) => keys.some((key) => d[key].toLowerCase().includes(query))
+                // user.name.toLowerCase().includes(query) ||
+                // user.username.toLowerCase().includes(query) ||
+                // user.email.toLowerCase().includes(query)
+            ); //using searching column
         } else {
             return data; //return all users
         }
@@ -53,6 +59,8 @@ export const Home = ({ message, changeMessage }) => {
                 return [...prev, id];
             }
         });
+
+        // console.log("checked", checked);
     };
 
     const addFake = async () => {
@@ -65,8 +73,15 @@ export const Home = ({ message, changeMessage }) => {
             email: fName.toLowerCase() + "@fakemail.com",
         };
 
+        // const fakeUser = {
+        //     name: "Atiqur Rahman",
+        //     username: "atiq",
+        //     email: "atiqbit@gmail.com",
+        // };
+
         await axios.post(ROOT_URL + "/user/add", fakeUser);
         changeMessage(`A fake data is added`);
+        // setChecked([]);
         setAlert(true);
         loadUsers();
     };
@@ -167,6 +182,7 @@ export const Home = ({ message, changeMessage }) => {
                             );
                         })}
                         <tr>
+                            {/* <td colSpan={5}>A</td> */}
                             <td></td>
                             <td></td>
                             <td></td>
@@ -184,7 +200,11 @@ export const Home = ({ message, changeMessage }) => {
 
                 {alert && (
                     <div class="alert alert-danger alert-dismissible" role="alert">
-                        <button class="btn-close" data-bs-dismiss="alert"></button>
+                        <button
+                            class="btn-close"
+                            data-bs-dismiss="alert"
+                            aria-label="Close"
+                        ></button>
                         {message}
                     </div>
                 )}
@@ -221,6 +241,29 @@ export const Home = ({ message, changeMessage }) => {
                     </>
                 )}
             </div>
+
+            {/* <div className="py-4" fs-6>
+                <label className="text-secondary">Source code:</label>
+                <br />
+                <label className="text-secondary">Spring Boot - Back End:</label> */}
+
+            {/* <Link
+                    className="mx-3 text-decoration-underline"
+                    to="https://github.com/rahman-atiqur/usersystem-back"
+                    target="_blank"
+                >
+                    https://github.com/rahman-atiqur/usersystem-back
+                </Link>
+                <br />
+                <label className="text-secondary">ReactJS - Front End:</label>
+                <Link
+                    className="mx-3 text-decoration-underline"
+                    to="https://github.com/rahman-atiqur/usersystem-front"
+                    target="_blank"
+                >
+                    https://github.com/rahman-atiqur/usersystem-front
+                </Link> */}
+            {/* </div> */}
         </div>
     );
 };
