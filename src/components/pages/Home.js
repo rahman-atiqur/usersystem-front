@@ -87,9 +87,10 @@ export const Home = ({ message, changeMessage }) => {
                     }}
                 />
 
-                <table className="table border shadow">
+                <table className="table table-hover shadow">
                     <thead>
-                        <tr>
+                        <tr className="table-bordered">
+                            {/* <tr className="table-success"> */}
                             <th scope="col">Sl.</th>
                             <th scope="col">Name</th>
                             <th scope="col">Username</th>
@@ -173,7 +174,7 @@ export const Home = ({ message, changeMessage }) => {
                             <td></td>
                             <td>
                                 <button className="btn text-secondary" onClick={() => addFake()}>
-                                    Add a fake data
+                                    Click here to add a test data
                                 </button>
                             </td>
                         </tr>
@@ -183,8 +184,8 @@ export const Home = ({ message, changeMessage }) => {
                 {/* {alert && <label className="text-danger">{message}</label>} */}
 
                 {alert && (
-                    <div class="alert alert-danger alert-dismissible" role="alert">
-                        <button class="btn-close" data-bs-dismiss="alert"></button>
+                    <div className="alert alert-danger alert-dismissible" role="alert">
+                        <button className="btn-close" data-bs-dismiss="alert"></button>
                         {message}
                     </div>
                 )}

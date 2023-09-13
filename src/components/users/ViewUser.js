@@ -23,6 +23,7 @@ export const ViewUser = ({ changeMessage }) => {
         changeMessage("Ready to add new data");
     };
 
+    
     //deconstructing
     const { name, username, email } = user;
 
