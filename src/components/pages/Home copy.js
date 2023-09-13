@@ -199,9 +199,9 @@ export const Home = ({ message, changeMessage }) => {
                 {/* {alert && <label className="text-danger">{message}</label>} */}
 
                 {alert && (
-                    <div class="alert alert-danger alert-dismissible" role="alert">
+                    <div className="alert alert-danger alert-dismissible" role="alert">
                         <button
-                            class="btn-close"
+                            className="btn-close"
                             data-bs-dismiss="alert"
                             aria-label="Close"
                         ></button>

@@ -22,17 +22,21 @@ const Navbar = () => {
                     </Link>
                 </div>
             </nav> */}
-            <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
                 <div className="container-fluid">
                     <div className="col-lg-4">
                         <Link href="#" className="navbar-brand" to="/">
                             <img src={logo} alt="logo" width={50} height={50} />
                         </Link>
                         <Link className="navbar-brand" to="/">
-                            <span className="fs-3">User System</span> - Spring Boot and ReactJS
+                            <span className="fs-3">User System</span>
+                            <span className="text-info">
+                                &nbsp;&nbsp;- Spring Boot and ReactJS - Ver 1.02
+                            </span>
                         </Link>
                     </div>
-                    <div className="div-lg-8 ">
+
+                    <div className="div-lg-8">
                         <Link className="btn btn-outline-light mx-2" to="/">
                             Home
                         </Link>
