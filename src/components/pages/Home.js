@@ -12,9 +12,6 @@ export const Home = ({ message, changeMessage }) => {
 
     useEffect(() => {
         loadUsers();
-        const timer = setTimeout(() => {
-            setAlert(false);
-        }, 3000);
     }, []);
 
     const loadUsers = async () => {
@@ -59,10 +56,10 @@ export const Home = ({ message, changeMessage }) => {
     };
 
     const addFake = async () => {
-        // const fName = faker.person.firstName();
-        // const lName = faker.person.lastName();
-        const fName = "Atiqur";
-        const lName = "Rahman";
+        const fName = faker.person.firstName();
+        const lName = faker.person.lastName();
+        // const fName = "Atiqur";
+        // const lName = "Rahman";
 
         const fakeUser = {
             name: fName + " " + lName,
