@@ -12,6 +12,9 @@ export const Home = ({ message, changeMessage }) => {
 
     useEffect(() => {
         loadUsers();
+        const timer = setTimeout(() => {
+            setAlert(false);
+        }, 3000);
     }, []);
 
     const loadUsers = async () => {
