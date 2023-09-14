@@ -56,8 +56,10 @@ export const Home = ({ message, changeMessage }) => {
     };
 
     const addFake = async () => {
-        const fName = faker.person.firstName();
-        const lName = faker.person.lastName();
+        // const fName = faker.person.firstName();
+        // const lName = faker.person.lastName();
+        const fName = "Atiqur";
+        const lName = "Rahman";
 
         const fakeUser = {
             name: fName + " " + lName,
